@@ -1,48 +1,80 @@
-/* --- Ajustes necesarios para Leaflet + React --- */
-html, body, #root, .App {
-  height: 100%;
+#root {
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  background-color: white; /* ← evita fondos negros */
 }
 
-/* Elimina límites que vienen por defecto en Vite */
-#root {
+/* Contenedor principal */
+.app-container {
+  display: flex;
+  flex-direction: column; 
+  height: 100%;
   width: 100%;
 }
 
-/* Puedes dejar lo demás si quieres, o borrarlo */
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* HEADER alineado a la izquierda */
+.app-header {
+  background-color: #3f51b5;
+  color: white;
+  padding: 10px 20px;
+
+  display: flex;            /* ← alinear contenido */
+  align-items: center;
+  justify-content: flex-start; /* ← a la izquierda */
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-header h1 {
+  margin: 0;
+  font-size: 2em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* BARRA DE CONTROLES */
+.controls-container {
+  background-color: #3f51b5;
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+
+  flex-shrink: 0;
 }
 
-.card {
-  padding: 2em;
+.select-group label {
+  margin-right: 8px;
+  font-weight: bold;
+  color: #ddd;
 }
 
-.read-the-docs {
-  color: #888;
+.select-group select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+/* MAPA */
+.map-container {
+  flex-grow: 1;
+  width: 100%;
+
+  padding-left: 200px; /* espacio a la izquierda */
+  background-color: white; /* ← FONDO BLANCO en la zona vacía */
+
+  box-sizing: border-box;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-left: 2px solid #ccc;
+  background-color: white; /* ← evita contraste con modos oscuros */
 }
