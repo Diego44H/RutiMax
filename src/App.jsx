@@ -1,44 +1,46 @@
-import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import "./App.css";
+import React from 'react';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import './App.css'; // Asumiendo que quieres mantener los estilos básicos
 
-/* ========== FIX para íconos de Leaflet en Vite ========== */
-import L from "leaflet";
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerRetina from "leaflet/dist/images/marker-icon-2x.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
+// --- Configuración del Mapa ---
 
-delete L.Icon.Default.prototype._getIconUrl;
+// Estilo para el contenedor del mapa
+const containerStyle = {
+  width: '100vw',
+  height: '100vh'
+};
 
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: markerRetina,
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
-});
+// Coordenadas de ejemplo (Centro de Villahermosa)
+const center = {
+  lat: 17.9869,
+  lng: -92.9303
+};
 
-/* ========================================================= */
-
-const center = [17.9869, -92.9303]; // Villahermosa
+// --- Componente Principal ---
 
 function App() {
+  // 1. El hook para cargar la API de Google Maps
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+    libraries: ['places'] // Cargamos 'places' para usarlas después
+  });
+
+  // 2. Estado de carga
+  if (!isLoaded) {
+    return <div>Cargando...</div>;
+  }
+
+  // 3. Renderizar el mapa
   return (
     <div className="App">
-      <MapContainer
+      <GoogleMap
+        mapContainerStyle={containerStyle}
         center={center}
-        zoom={13}
-        scrollWheelZoom={true}
-        style={{ height: "100%", width: "100%" }}
+        zoom={12} // Un zoom inicial bueno para una ciudad
       >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; OpenStreetMap contributors'
-        />
-
-        <Marker position={center}>
-          <Popup>¡Hola desde Villahermosa!</Popup>
-        </Marker>
-      </MapContainer>
+        {/* Aquí pondremos marcadores y rutas más adelante */}
+      </GoogleMap>
     </div>
   );
 }

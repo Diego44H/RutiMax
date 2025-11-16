@@ -1,25 +1,21 @@
-/* --- Ajustes necesarios para Leaflet + React --- */
-html, body, #root, .App {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* Elimina límites que vienen por defecto en Vite */
 #root {
-  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-/* Puedes dejar lo demás si quieres, o borrarlo */
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -28,6 +24,7 @@ html, body, #root, .App {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
