@@ -76,3 +76,54 @@
   border-left: 2px solid #ccc;
   background-color: white; 
 }
+
+
+
+@media (max-width: 768px) {
+  
+  .app-header {
+    padding: 5px 10px; 
+    min-height: auto;
+  }
+  
+  .app-header h1 {
+    font-size: 1.2rem; 
+    margin: 0;
+  }
+
+  .controls-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 8px 15px; 
+  }
+
+  .controls-container h3 {
+    text-align: center;
+    margin: 0;
+    font-size: 0.9rem; 
+  }
+
+  .select-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0; 
+  }
+
+  .select-group label {
+    margin-bottom: 1px; 
+    font-size: 0.8rem;
+    color: #eee; 
+  }
+
+  .select-group select {
+    width: 100%;
+    padding: 6px;
+    font-size: 0.9rem; 
+    height: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}
