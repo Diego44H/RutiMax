@@ -4,10 +4,9 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: white; /* ← evita fondos negros */
+  background-color: white;
 }
 
-/* Contenedor principal */
 .app-container {
   display: flex;
   flex-direction: column; 
@@ -15,15 +14,14 @@
   width: 100%;
 }
 
-/* HEADER alineado a la izquierda */
 .app-header {
   background-color: #3f51b5;
   color: white;
   padding: 10px 20px;
 
-  display: flex;            /* ← alinear contenido */
+  display: flex;           
   align-items: center;
-  justify-content: flex-start; /* ← a la izquierda */
+  justify-content: flex-start; 
 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   flex-shrink: 0;
@@ -34,7 +32,6 @@
   font-size: 2em;
 }
 
-/* BARRA DE CONTROLES */
 .controls-container {
   background-color: #3f51b5;
   padding: 15px 20px;
@@ -54,6 +51,10 @@
   color: #ddd;
 }
 
+.select-group {
+  margin-bottom: 5px; 
+}
+
 .select-group select {
   padding: 8px;
   border: 1px solid #ccc;
@@ -65,10 +66,7 @@
 .map-container {
   flex-grow: 1;
   width: 100%;
-
-  padding-left: 200px; /* espacio a la izquierda */
-  background-color: white; /* ← FONDO BLANCO en la zona vacía */
-
+  background-color: white; 
   box-sizing: border-box;
 }
 
@@ -76,5 +74,5 @@
   width: 100%;
   height: 100%;
   border-left: 2px solid #ccc;
-  background-color: white; /* ← evita contraste con modos oscuros */
+  background-color: white; 
 }
